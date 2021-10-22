@@ -1,0 +1,91 @@
+local UILibrary = loadstring(game:HttpGet("https://pastebin.com/raw/V1ca2q9s"))()
+
+local MainUI = UILibrary.Load("bling.hub")
+local FirstPage = MainUI.AddPage("Home")
+
+local FirstLabel = FirstPage.AddLabel("Rage Hacks")
+local FirstButton = FirstPage.AddButton("Korblox", function()
+
+local Char = game.Players.LocalPlayer.Character
+local plr = game.Players.LocalPlayer.Character
+local head = Char.Head
+local face = head.face
+local c = plr.RightFoot
+local x = plr.RightLowerLeg
+local z = plr.RightUpperLeg
+local r = plr.LeftFoot
+local e = plr.LeftLowerLeg
+local w = plr.LeftUpperLeg
+
+
+
+
+c.MeshId = "http://www.roblox.com/asset/?id=902942093"
+x.MeshId = "http://www.roblox.com/asset/?id=902942093"
+z.MeshId = "http://www.roblox.com/asset/?id=902942096"
+z.TextureID = "http://roblox.com/asset/?id=902843398"
+c.Transparency = 1
+x.Transparency = 1
+end)
+local FirstButton = FirstPage.AddButton("Blings TP", function()
+    mouse = game.Players.LocalPlayer:GetMouse()
+	tool = Instance.new("Tool")
+	tool.RequiresHandle = false
+	tool.Name = "Blings TP"
+	tool.Activated:connect(function()
+		local pos = mouse.Hit+Vector3.new(0,2.5,0)
+		pos = CFrame.new(pos.X,pos.Y,pos.Z)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+	end)
+	tool.Parent = game.Players.LocalPlayer.Backpack
+end)
+local FirstButton = FirstPage.AddButton("Fake Macro (K)", function()
+-- the key 2 speed is "K"
+plr = game:GetService('Players').LocalPlayer
+down = true
+ 
+function onButton1Down(mouse)
+    down = true
+    while down do
+        if not down then break end
+        local char = plr.Character
+        char.HumanoidRootPart.Velocity = char.HumanoidRootPart.CFrame.lookVector * 190
+        wait()
+    end
+end
+ 
+function onButton1Up(mouse)
+    down = false
+end
+ 
+function onSelected(mouse)
+    mouse.KeyDown:connect(function(k) if k:lower()=="k"then onButton1Down(mouse)end end)
+    mouse.KeyUp:connect(function(k) if k:lower()=="k"then onButton1Up(mouse)end end)
+end
+onSelected(game.Players.LocalPlayer:GetMouse())
+end)
+local FirstButton = FirstPage.AddButton("SilentAim", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/8J5R74fT"))()
+end)
+local FirstToggle = FirstPage.AddToggle("Auto Prediction", false, function(Value)
+
+end)
+local FirstToggle = FirstPage.AddToggle("AirShot Function", false, function(Value)
+
+end)
+local FirstSlider = FirstPage.AddSlider("SilentAim Smoothness", {Min = 0, Max = 100, Def = 0}, function(Value)
+print(Value)
+end)
+local FirstPicker = FirstPage.AddColourPicker("ColourToggle", "white", function(Value)
+print(Value)
+end)
+local FirstDropdown = FirstPage.AddDropdown("SilentAim Part", {
+"Head",
+"UpperTorso",
+"HumanoidRootPart",
+"LowerTorso",
+"Legs",
+"RandomPart"
+}, function(Value)
+print(Value)
+end)
